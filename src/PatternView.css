@@ -1,4 +1,8 @@
 .pattern-view {
     height: 100%;
     flex-grow: 1;
+    display: flex;
+}
+.pattern-view > svg {
+    flex-grow: 1;
 }

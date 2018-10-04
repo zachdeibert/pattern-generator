@@ -5,17 +5,22 @@ import "./ControlView.css";
 export default class ControlView extends React.Component {
     constructor(props) {
         super(props);
+        const name = PatternDatabase.getPatternNames()[0];
+        const pattern = PatternDatabase.getPattern(name);
         this.state = {
-            "patternName": PatternDatabase.getPatternNames()[0],
-            "pattern": PatternDatabase.getPattern(PatternDatabase.getPatternNames()[0])
+            "patternName": name,
+            "parameters": pattern.parameters
         };
+        this.props.handlePatternChange(pattern.pattern);
     }
 
     handleChange(ev) {
+        const pattern = PatternDatabase.getPattern(ev.target.value);
         this.setState({
             "patternName": ev.target.value,
-            "pattern": PatternDatabase.getPattern(ev.target.value)
+            "parameters": pattern.parameters
         });
+        this.props.handlePatternChange(pattern.pattern);
     }
 
     render() {
@@ -29,7 +34,7 @@ export default class ControlView extends React.Component {
                         ))}
                     </select>
                 </div>
-                {this.state.pattern.parameters}
+                {this.state.parameters}
             </div>
         );
     }
