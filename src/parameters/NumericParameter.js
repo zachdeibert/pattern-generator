@@ -8,6 +8,11 @@ export default class NumericParameter extends React.Component {
             "textValue": this.props.defaultValue || ""
         };
         this.handleChange = this.handleChange.bind(this);
+        this.handleStateChanged = this.handleStateChanged.bind(this);
+    }
+
+    handleStateChanged() {
+        this.pattern.forceUpdate();
     }
 
     handleChange(ev) {
@@ -15,7 +20,7 @@ export default class NumericParameter extends React.Component {
             this.setState({
                 "value": 0,
                 "textValue": ""
-            });
+            }, this.handleStateChanged);
         } else {
             const value = parseFloat(ev.target.value);
             if (!isNaN(value)) {
@@ -23,12 +28,12 @@ export default class NumericParameter extends React.Component {
                     this.setState({
                         "value": value,
                         "textValue": `${value}.`
-                    });
+                    }, this.handleStateChanged);
                 } else {
                     this.setState({
                         "value": value,
                         "textValue": value
-                    });
+                    }, this.handleStateChanged);
                 }
             }
         }
