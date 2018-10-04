@@ -4,3 +4,17 @@
     height: 100%;
     box-shadow: 0 0 10px 3px #000000;
 }
+.control-view > .input-field {
+    width: 100%;
+}
+.control-view > .input-field > label {
+    margin: 5px;
+    font-weight: bold;
+    color: #7F7F7F; 
+    font-size: 0.75em;
+}
+.control-view > .input-field > select, .control-view > .input-field > input {
+    width: calc(100% - 10px);
+    margin: 5px;
+    box-sizing: border-box;
+}
