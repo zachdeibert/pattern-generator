@@ -12,6 +12,7 @@ export default class ControlView extends React.Component {
             "parameters": pattern.parameters
         };
         this.props.handlePatternChange(pattern.pattern);
+        this.handleChange = this.handleChange.bind(this);
     }
 
     handleChange(ev) {
