@@ -185,6 +185,7 @@ class TriangleMesh extends React.Component {
                 let v;
                 for (v = topLeft; v !== bottomLeft;) {
                     loop(v);
+                    // eslint-disable-next-line
                     let vs = v[2].filter(v2 => v2[1] > v[1]);
                     let v1 = vs[0];
                     vs.forEach(v2 => {
@@ -202,6 +203,7 @@ class TriangleMesh extends React.Component {
                 };
                 for (v = topRight; v !== bottomRight;) {
                     loop(v);
+                    // eslint-disable-next-line
                     let vs = v[2].filter(v2 => v2[1] > v[1]);
                     let v1 = vs[0];
                     vs.forEach(v2 => {
@@ -264,6 +266,7 @@ class TriangleMesh extends React.Component {
                 };
                 for (v = topLeft; v !== bottomLeft;) {
                     loop(v);
+                    // eslint-disable-next-line
                     let vs = v[2].filter(v2 => v2[1] > v[1]);
                     let v1 = vs[0];
                     vs.forEach(v2 => {
@@ -283,6 +286,7 @@ class TriangleMesh extends React.Component {
                     }
                 };
                 for (v = topRight; v !== bottomRight;) {
+                    // eslint-disable-next-line
                     let vs = v[2].filter(v2 => v2[1] > v[1]);
                     let v1 = vs[0];
                     vs.forEach(v2 => {
