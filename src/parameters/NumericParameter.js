@@ -4,8 +4,8 @@ export default class NumericParameter extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            "value": this.props.defaultValue || 0,
-            "textValue": this.props.defaultValue || ""
+            "value": localStorage[`NumericParameter-${this.props.label}`] || this.props.defaultValue || 0,
+            "textValue": localStorage[`NumericParameter-${this.props.label}`] || this.props.defaultValue || ""
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleStateChanged = this.handleStateChanged.bind(this);
@@ -13,6 +13,7 @@ export default class NumericParameter extends React.Component {
 
     handleStateChanged() {
         this.pattern.forceUpdate();
+        localStorage[`NumericParameter-${this.props.label}`] = this.state.value;
     }
 
     handleChange(ev) {

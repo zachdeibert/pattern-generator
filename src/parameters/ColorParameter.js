@@ -4,7 +4,7 @@ export default class ColorParameter extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            "value": this.props.defaultValue || "#000000"
+            "value": localStorage[`ColorParameter-${this.props.label}`] || this.props.defaultValue || "#000000"
         };
         this.handleChange = this.handleChange.bind(this);
     }
@@ -15,6 +15,7 @@ export default class ColorParameter extends React.Component {
                 "value": ev.target.value
             }, () => {
                 this.pattern.forceUpdate();
+                localStorage[`ColorParameter-${this.props.label}`] = this.state.value;
             });
         }
     }
