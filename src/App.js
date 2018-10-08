@@ -1,6 +1,7 @@
 import React from "react";
 import PatternView from "./PatternView";
 import ControlView from "./ControlView";
+import DownloadButton from "./DownloadButton";
 import "./App.css";
 
 export default class App extends React.Component {
@@ -23,6 +24,7 @@ export default class App extends React.Component {
             <div className="app">
                 <ControlView handlePatternChange={this.handlePatternChange} />
                 <PatternView pattern={this.state.pattern} />
+                <DownloadButton />
             </div>
         );
     }
